@@ -30,6 +30,7 @@ export class AppComponent implements OnInit{
 
   message: string = '';
   messages: string[] = [];
+  convertedTimes: string = '';
 
 
     ngOnInit(){
@@ -63,11 +64,26 @@ export class AppComponent implements OnInit{
         }
       );
 
+
+      // Subscribe to getTime method
+      this.getTimes().subscribe(
+        (response: any) => {
+          this.convertedTimes = response.convertedTimes;
+        },
+        (error: any) => {
+          console.error('Error fetching converted times:', error);
+        }
+      );
+
   }
 
   getMessages(): Observable<any> {
     const requestData = { messages: this.messages }; // Prepare data to send with the request
     return this.httpClient.get(this.baseURL + '/welcome/messages', {responseType: 'json'});
+  }
+
+  getTimes(): Observable<any> {
+    return this.httpClient.get('http://localhost:8080/time/time-zones');
   }
 
 
