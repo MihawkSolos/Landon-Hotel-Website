@@ -103,8 +103,6 @@ export class AppComponent implements OnInit{
   }*/
 
     getAll(): Observable<any> {
-
-
        return this.httpClient.get(this.baseURL + '/room/reservation/v1?checkin='+ this.currentCheckInVal + '&checkout='+this.currentCheckOutVal, {responseType: 'json'});
     }
 
@@ -125,6 +123,8 @@ export interface Room{
   roomNumber:string;
   price:string;
   links:string;
+  priceCAD: string;
+  priceEUR: string;
 
 }
 export class ReserveRoomRequest {
