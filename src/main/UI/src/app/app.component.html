@@ -15,9 +15,14 @@
     <nav id="nav" style="position: relative; top: 0; left: 0; bottom: auto; right: auto; width: 100%;">
       <div class="navbar">
 
-        <!-- Display Welcome Messages, Step B1 -->
-        <h1> {{messages[0]}} </h1>
-        <h1> {{messages[1]}} </h1>
+        <!-- displaying welcome essages (change font to white), Step B1 -->
+        <style>
+          .white-text {
+            color: white;
+          }
+        </style>
+        <h1 class="white-text"> {{messages[0]}} </h1>
+        <h1 class="white-text"> {{messages[1]}} </h1>
 
         <div class="brand"><a href="/#welcome">Landon <span>Hotel</span></a></div>
       </div><!-- navbar -->
